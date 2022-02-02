@@ -3,7 +3,7 @@
 Github: https://github.com/irvensd/Team-Profile-Generator
 
 ## Walk-Through Video 
-
+https://drive.google.com/file/d/15bO_RfUY0h4JifzGWXQzO2IYnx3--Vmu/view
 
 ## Description:
 Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person.
