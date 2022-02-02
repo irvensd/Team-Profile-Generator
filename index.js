@@ -13,11 +13,11 @@ const Intern = require("./lib/Intern");
 const DIST_DIR = path.resolve(__dirname, "dist");
 const outputPath = path.join(DIST_DIR, "index.html");
 
-const pageRender = require("./src/page-template.js");
+const pageTemplate = require("./src/page-template.js");
 
 // Create empty arrays for team and id as place holders
-const teamArr = [];
-const idArr = [];
+const teamArray = [];
+const idArray = [];
 
 // Start application
 function startApp() {
@@ -62,7 +62,7 @@ function startApp() {
         {
           type: "input",
           name: "managerOfficeNumber",
-          message: "What's the manager's office number? (format: 111111111)",
+          message: "What's the manager's office number?",
           validate: (answer) => {
             const pass = answer.match(/^[1-9]\d*$/);
             if (pass) {
@@ -79,8 +79,8 @@ function startApp() {
           answers.managerEmail,
           answers.managerOfficeNumber
         );
-        teamArr.push(manager);
-        idArr.push(answers.managerId);
+        teamArray.push(manager);
+        idArray.push(answers.managerId);
         addTeam();
       });
   }
@@ -166,8 +166,8 @@ function startApp() {
           answers.engineerEmail,
           answers.engineerGithub
         );
-        teamArr.push(engineer);
-        idArr.push(answers.engineerId);
+        teamArray.push(engineer);
+        idArray.push(answers.engineerId);
         addTeam();
       });
   }
@@ -228,8 +228,8 @@ function startApp() {
           answers.internEmail,
           answers.internSchool
         );
-        teamArr.push(intern);
-        idArr.push(answers.internId);
+        teamArray.push(intern);
+        idArray.push(answers.internId);
         addTeam();
       });
   }
@@ -240,7 +240,7 @@ function startApp() {
       fs.mkdirSync(DIST_DIR);
     }
    
-    fs.writeFileSync(outputPath, pageRender(teamArr), "utf-8");
+    fs.writeFileSync(outputPath, pageTemplate(teamArray), "utf-8");
   }
 
   addManager();
